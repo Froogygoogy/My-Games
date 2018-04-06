@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Games</string>
+    <string name="action_settings">Settings</string>
+    <string name="Games">Games</string>
+    <string name="Platforms">Platforms</string>
+    <string name="Genres">Genres</string>
+</resources>

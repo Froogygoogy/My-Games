@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.froogygoogy.mygames.MyGames.MyGamesActivity">
+    <item
+        android:id="@+id/action_games"
+        android:orderInCategory="100"
+        android:title="@string/Games"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_platforms"
+        android:orderInCategory="100"
+        android:title="@string/Platforms"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_genres"
+        android:orderInCategory="100"
+        android:title="@string/Genres"
+        app:showAsAction="never" />
+</menu>
