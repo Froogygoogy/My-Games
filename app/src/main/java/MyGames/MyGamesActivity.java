@@ -40,7 +40,15 @@ public class MyGamesActivity extends AppCompatActivity implements IMyGamesView, 
         setContentView(R.layout.activity_my_games);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        displayMode = DISPLAY_GAMES;
+        if(savedInstanceState != null)
+        {
+            displayMode = savedInstanceState.getInt("Display");
+        }
+        else
+        {
+            displayMode = DISPLAY_GAMES;
+        }
+
 
         noNames = findViewById(R.id.textView);
         namesList = findViewById(R.id.listView);
@@ -144,5 +152,12 @@ public class MyGamesActivity extends AppCompatActivity implements IMyGamesView, 
 // Start the activity:
         startActivity(intent);
 
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt("Display",displayMode);
+        super.onSaveInstanceState(outState);
+        //presenter.saveState(outState);
     }
 }
