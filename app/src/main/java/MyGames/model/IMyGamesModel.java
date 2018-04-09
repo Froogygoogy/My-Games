@@ -1,5 +1,6 @@
 package MyGames.model;
 
+import java.io.File;
 import java.util.List;
 
 import MyGames.model.inetserver.ResponseReceiver;
@@ -19,4 +20,9 @@ public interface IMyGamesModel {
     List<Integer> getGamesWithGenre(String s);
 
     List<Integer> getGamesWithPlatform(String s);
+    GameData getGameData(int id);
+    void requestCover(String cover, int currentGameId,
+                      ResponseReceiver<File> responseReceiver);
+
+    void changeComment(int currentGameId, String comment);
 }

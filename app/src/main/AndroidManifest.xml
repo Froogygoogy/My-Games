@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name="MyGames.addGame.AddGameActivity" />
-        <activity android:name="MyGames.showGame.ShowGameActivity"></activity>
+        <activity android:name="MyGames.showGame.ShowGameActivity" />
+        <activity android:name="MyGames.showGame.AskCommentDialog"></activity>
     </application>
 
 </manifest>

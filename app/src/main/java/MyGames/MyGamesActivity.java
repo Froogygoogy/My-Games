@@ -1,10 +1,8 @@
 package MyGames;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -146,7 +144,7 @@ public class MyGamesActivity extends AppCompatActivity implements IMyGamesView, 
     @Override
     public void switchToGame(Integer integer) {
         // Create the Intent
-        Intent intent = new Intent(this, ShowGameActivity .class);
+        Intent intent = new Intent(this, ShowGameActivity.class);
 // Add the parameters to AddGameActivity
         intent.putExtra(ShowGameActivity.key, integer);
 // Start the activity:

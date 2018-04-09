@@ -2,6 +2,7 @@ package MyGames.model;
 
 import android.content.Context;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,5 +88,21 @@ public class MyGamesModel implements  IMyGamesModel {
     public List<Integer> getGamesWithPlatform(String s) {
         return db.getGamesWithPlatform(s);
     }
+
+    @Override
+    public GameData getGameData(int id) {
+        return db.getGameData(id);
+    }
+
+    @Override
+    public void requestCover(String cover, int currentGameId,final ResponseReceiver<File> receiver) {
+        gamesServer.requestCover(cover, String.valueOf(currentGameId), receiver);
+    }
+
+    @Override
+    public void changeComment(int currentGameId, String comment) {
+        db.changeComment(currentGameId, comment);
+    }
+
 
 }
