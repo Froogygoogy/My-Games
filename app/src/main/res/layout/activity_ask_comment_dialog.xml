@@ -14,7 +14,7 @@
         <TextView
             android:id="@+id/textViewAskCommentTitle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Write a coment"
             android:textSize="24sp"
@@ -23,17 +23,16 @@
         <TextView
             android:id="@+id/texViewPlease"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Please, write your comment below:" />
 
         <EditText
             android:id="@+id/editTextComment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:inputType="textPersonName" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

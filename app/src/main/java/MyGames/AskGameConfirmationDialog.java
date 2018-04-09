@@ -49,10 +49,6 @@ public class AskGameConfirmationDialog extends DialogFragment {
                 }
         );
         builder.setNegativeButton("NOT AT ALL",null);
-
-
-
-
         return builder.create();
     }
     @Override

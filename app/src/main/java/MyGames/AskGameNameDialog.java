@@ -29,7 +29,6 @@ public class AskGameNameDialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Activity context = getActivity();
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        final Layout lookfor_name_layout;
         View view = context.getLayoutInflater().inflate(
                 R.layout.lookfor_name_layout, null);
         gameNameEdit = view.findViewById(R.id.editText);

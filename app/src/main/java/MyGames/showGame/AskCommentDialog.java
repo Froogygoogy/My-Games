@@ -19,21 +19,23 @@ public class AskCommentDialog extends DialogFragment{
     }
     private IConfirmedCommentListener confirmedComment;
     private EditText comment;
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Activity context = getActivity();
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        final Layout lookfor_name_layout;
         View view = context.getLayoutInflater().inflate(
-                R.layout.activity_ask_comment_dialog, null);
+                R.layout.lookfor_name_layout, null);
         comment = view.findViewById(R.id.editTextComment);
+        builder.setView(view);
         builder.setPositiveButton("ADD COMMENT",
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int whichButton) {
                         if(confirmedComment != null)
                         {
-
+                            //confirmedComment.onConfirmedComment(comment.getText().toString());crash
+                            confirmedComment.onConfirmedComment("YASH");
                         }
                     }
                 }
