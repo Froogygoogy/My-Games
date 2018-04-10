@@ -104,5 +104,10 @@ public class MyGamesModel implements  IMyGamesModel {
         db.changeComment(currentGameId, comment);
     }
 
+    @Override
+    public void changeState(int currentGameId, GameData.MyGameState currentGameState) {
+        db.changeState(currentGameId, currentGameState);
+    }
+
 
 }

@@ -25,4 +25,6 @@ public interface IMyGamesModel {
                       ResponseReceiver<File> responseReceiver);
 
     void changeComment(int currentGameId, String comment);
+
+    void changeState(int currentGameId, GameData.MyGameState currentGameState);
 }

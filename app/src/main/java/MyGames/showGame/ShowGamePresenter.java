@@ -19,7 +19,7 @@ public class ShowGamePresenter {
     private  IShowGameView view;
     private IMyGamesModel model;
     private int currentGameId;
-    private GameData.MyGameState currentGameState = GameData.MyGameState.WANTING;
+    private GameData.MyGameState currentGameState;
     private static SimpleDateFormat sdf;
     static {
         sdf = new SimpleDateFormat("yyyy, MMMM d");
@@ -77,6 +77,7 @@ public class ShowGamePresenter {
 
             }
             view.setGameTotalRating(gameData.getTotalRating());
+            currentGameState = gameData.getState();
             view.setGameState(currentGameState);
             if (gameData.getReleaseDate() !=(double)NO_NUMBER){
                 sdf.format(gameData.getReleaseDate()*1000);
@@ -108,7 +109,12 @@ public class ShowGamePresenter {
 
     }
     public void onChangedGameState(GameData.MyGameState wanting) {
-        currentGameState = wanting;
+        if(wanting!=currentGameState)
+        {
+            currentGameState = wanting;
+            model.changeState(currentGameId,currentGameState);
+            view.setGameState(currentGameState);
+        }
     }
 
     public void onRequestToChangeComment() {
