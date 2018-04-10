@@ -37,6 +37,7 @@ public class AskGameConfirmationDialog extends DialogFragment {
         name.setText("Name: " + parameters.getString("name"));
         summary.setText("Summary: " + parameters.getString("summary"));
         builder.setView(view);
+        builder.setTitle("Please,confirm insertion");
         builder.setPositiveButton("YES,PROCEED",
                 new DialogInterface.OnClickListener() {
                     @Override
