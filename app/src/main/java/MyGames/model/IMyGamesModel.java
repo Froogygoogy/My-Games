@@ -27,4 +27,8 @@ public interface IMyGamesModel {
     void changeComment(int currentGameId, String comment);
 
     void changeState(int currentGameId, GameData.MyGameState currentGameState);
+
+    String getGameSummary(int gameId);
+
+    void deleteGame(int gameToDelete);
 }

@@ -21,7 +21,7 @@ public class AskGameConfirmationDialog extends DialogFragment {
     public interface  IConfirmedListener {
         void onActionConfirmed();
     }
-    TextView name;
+    TextView name,question;
     TextView summary;
 
     IConfirmedListener confirmedListener;
@@ -34,10 +34,12 @@ public class AskGameConfirmationDialog extends DialogFragment {
         Bundle parameters = getArguments();
         name =  view.findViewById(R.id.textViewName);
         summary =  view.findViewById(R.id.textViewSummary);
+        question = view.findViewById(R.id.textViewQuestion);
         name.setText("Name: " + parameters.getString("name"));
         summary.setText("Summary: " + parameters.getString("summary"));
+        question.setText(parameters.getString("question"));
         builder.setView(view);
-        builder.setTitle("Please,confirm insertion");
+        builder.setTitle(parameters.getString("title"));
         builder.setPositiveButton("YES,PROCEED",
                 new DialogInterface.OnClickListener() {
                     @Override

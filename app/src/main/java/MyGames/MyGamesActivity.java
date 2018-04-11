@@ -22,7 +22,7 @@ import MyGames.addGame.AddGameActivity;
 import MyGames.model.MyGamesModel;
 import MyGames.showGame.ShowGameActivity;
 
-public class MyGamesActivity extends AppCompatActivity implements IMyGamesView, AskGameNameDialog.IGameNameListener{
+public class MyGamesActivity extends AppCompatActivity implements IMyGamesView, AskGameNameDialog.IGameNameListener, AskGameConfirmationDialog.IConfirmedListener{
 
     private MyGamesPresenter presenter;
     private TextView noNames;
@@ -113,6 +113,7 @@ public class MyGamesActivity extends AppCompatActivity implements IMyGamesView, 
         ListAdapter adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, names);
         namesList.setAdapter(adapter);
+        namesList.setLongClickable(false);
         namesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
@@ -128,6 +129,19 @@ public class MyGamesActivity extends AppCompatActivity implements IMyGamesView, 
         else
         {
             noNames.setText("");
+        }
+        if (displayMode == DISPLAY_GAMES)
+        {
+            namesList.setLongClickable(true);
+            namesList.setOnItemLongClickListener(
+                    new AdapterView.OnItemLongClickListener() {
+                        @Override
+                        public boolean onItemLongClick(AdapterView<?> parent, View view,
+                                                       int position, long id) {
+                            presenter.onDeleteGameRequested(position);
+                            return true;
+                        }
+                    });
         }
     }
 
@@ -153,9 +167,25 @@ public class MyGamesActivity extends AppCompatActivity implements IMyGamesView, 
     }
 
     @Override
+    public void askGameDeletionConfirmation(String gameName, String gameSummary) {
+        AskGameConfirmationDialog dialog = new AskGameConfirmationDialog();
+        Bundle params = new Bundle();
+        params.putString("title","Please, confirm deletion");
+        params.putString("name",gameName);
+        params.putString("summary",gameSummary);
+        params.putString("question","Do you really want to delete this game?");
+        dialog.show(getFragmentManager(), "AskGameDeletionConfirmation");
+    }
+
+    @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putInt("Display",displayMode);
         super.onSaveInstanceState(outState);
-        //presenter.saveState(outState);
+    }
+
+    @Override
+    public void onActionConfirmed() {
+        presenter.onGameDeletionConfirmed();
+
     }
 }

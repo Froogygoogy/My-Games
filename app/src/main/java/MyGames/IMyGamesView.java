@@ -13,4 +13,6 @@ public interface IMyGamesView {
     void setDisplay(int mode);
 
     void switchToGame(Integer integer);
+
+    void askGameDeletionConfirmation(String gameName, String gameSummary);
 }

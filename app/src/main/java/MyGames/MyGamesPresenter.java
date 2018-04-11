@@ -20,6 +20,7 @@ public class MyGamesPresenter {
     MyGamesModel model;
     List<Integer> itemsIds;
     List<String> itemNames;
+    private int gameToDelete;
 
 
     public MyGamesPresenter(IMyGamesView newView,MyGamesModel newModel) {
@@ -51,7 +52,7 @@ public class MyGamesPresenter {
             view.setDisplay(mode);
         }
     }
-    private void  onSetMode(int mode)
+    private void onSetMode(int mode)
     {
         switch (mode) {
             case DISPLAY_GAMES:
@@ -89,5 +90,18 @@ public class MyGamesPresenter {
         }
         view.setDisplay(DISPLAY_GAMES);
         onSetMode(currentMode);
+    }
+
+    public void onDeleteGameRequested(int position) {
+        gameToDelete = itemsIds.get(position);
+
+        view.askGameDeletionConfirmation("YASH","YASH"/*itemNames.get(position),model.getGameSummary(position)*/);
+    }
+
+    public void onGameDeletionConfirmed() {
+        model.deleteGame(gameToDelete);
+        view.setDisplay(DISPLAY_GAMES);
+        onSetMode(DISPLAY_GAMES);
+        view.displayNames(itemNames);
     }
 }

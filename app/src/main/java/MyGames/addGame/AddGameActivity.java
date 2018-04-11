@@ -101,7 +101,8 @@ public class AddGameActivity extends AppCompatActivity implements IAddGameView, 
         //put the required params in the bundle
         params.putString("name",name);
         params.putString("summary",summary);
-
+        params.putString("title","Please, confirm insertion");
+        params.putString("question","do you want to insert this game into local DB?");
         dialog.setArguments(params);
         dialog.show(getFragmentManager(), "AskGameInsertionConfirmation");
     }

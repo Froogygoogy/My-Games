@@ -109,5 +109,15 @@ public class MyGamesModel implements  IMyGamesModel {
         db.changeState(currentGameId, currentGameState);
     }
 
+    @Override
+    public String getGameSummary(int gameId) {
+        return db.getGameData(gameId).getSummary();
+    }
+
+    @Override
+    public void deleteGame(int gameToDelete) {
+        db.deleteGame(gameToDelete);
+    }
+
 
 }
