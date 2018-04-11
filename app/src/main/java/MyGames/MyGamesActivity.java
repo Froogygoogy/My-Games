@@ -174,6 +174,7 @@ public class MyGamesActivity extends AppCompatActivity implements IMyGamesView, 
         params.putString("name",gameName);
         params.putString("summary",gameSummary);
         params.putString("question","Do you really want to delete this game?");
+        dialog.setArguments(params);
         dialog.show(getFragmentManager(), "AskGameDeletionConfirmation");
     }
 

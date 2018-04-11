@@ -95,7 +95,7 @@ public class MyGamesPresenter {
     public void onDeleteGameRequested(int position) {
         gameToDelete = itemsIds.get(position);
 
-        view.askGameDeletionConfirmation("YASH","YASH"/*itemNames.get(position),model.getGameSummary(position)*/);
+        view.askGameDeletionConfirmation(itemNames.get(position),model.getGameSummary(gameToDelete));
     }
 
     public void onGameDeletionConfirmed() {
