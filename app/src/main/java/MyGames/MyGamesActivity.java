@@ -48,7 +48,7 @@ public class MyGamesActivity extends AppCompatActivity implements IMyGamesView, 
         }
 
 
-        noNames = findViewById(R.id.textView);
+        noNames = findViewById(R.id.textViewVoid);
         namesList = findViewById(R.id.listView);
         presenter = new MyGamesPresenter(this, MyGamesModel.getInstance(getApplicationContext()));
         namesList.setEmptyView(noNames);
